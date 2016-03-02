@@ -1,0 +1,14 @@
+app:
+   build: bot/.
+   links:
+    - db:mysql
+   ports:
+    - 8080:80
+   environment:
+    - VIRTUAL_HOST=bot.introbay.com
+   mem_limit: 1024m
+db:
+   image: mysql:5.6
+   env_file: 
+    - ./mysql.env
+   mem_limit: 1024m
