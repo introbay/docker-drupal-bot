@@ -6,9 +6,15 @@ app:
     - 8080:80
    environment:
     - VIRTUAL_HOST=bot.introbay.com
+   volumes:
+    - ./settings.php:/var/www/html/sites/default/settings.php
    mem_limit: 1024m
+   restart: always
 db:
    image: mysql:5.6
    env_file: 
     - ./mysql.env
+   volumes:
+    - ./db:/var/lib/mysql
    mem_limit: 1024m
+   restart: always
