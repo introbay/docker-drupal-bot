@@ -17,6 +17,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     && ln -sf $COMPOSER_HOME/vendor/bin/drush.php /usr/local/bin/drush \
     && drush cache-clear drush
 
+RUN drush dl bot && \
+	mkdir sites/default/files && \
+	chown www-data.www-data sites/default/files
+
 ADD ./install.sh install.sh
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
