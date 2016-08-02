@@ -2,10 +2,8 @@ app:
    build: bot/.
    links:
     - db:mysql
-   ports:
-    - 8080:80
    environment:
-    - VIRTUAL_HOST=bot.introbay.com
+    - VIRTUAL_HOST=botmurcia.introbay.com
    volumes:
     - ./settings.php:/var/www/html/sites/default/settings.php
    mem_limit: 1024m
